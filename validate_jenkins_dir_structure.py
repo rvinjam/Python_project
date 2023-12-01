@@ -1,6 +1,6 @@
 import os
 import os_check
-import validate_jenkins_dir
+import check_dir_structure
 import sys
 from xml.dom import ValidationErr
 
@@ -26,7 +26,7 @@ def main():
   jenkins_home_directory = get_jenkins_home_directory()
   print("The Jenkins home directory is:", jenkins_home_directory)
   try:
-    validate_jenkins_dir.validate_jenkins_directory_structure(jenkins_home_directory)
+    check_dir_structure.validate_jenkins_directory_structure(jenkins_home_directory)
   except ValidationErr as e:
     print(e)
     sys.exit(1)

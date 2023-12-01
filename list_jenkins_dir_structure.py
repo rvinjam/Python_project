@@ -1,5 +1,5 @@
 import os
-import jenkins_dir_check
+import validate_jenkins_dir_structure
 
 def get_jenkins_directory_structure(jenkins_home_directory):
   """Gets the Jenkins directory structure.
@@ -21,6 +21,6 @@ def get_jenkins_directory_structure(jenkins_home_directory):
 
 if __name__ == "__main__":
   
-  # jenkins_home_directory = jenkins_dir_check.get_jenkins_home_directory()
+  # jenkins_home_directory = validate_jenkins_dir_structure.get_jenkins_home_directory()
   jenkins_home_directory = os.environ.get("JENKINS_HOME", "C:\ProgramData\Jenkins\.jenkins")
   print(get_jenkins_directory_structure(jenkins_home_directory))
