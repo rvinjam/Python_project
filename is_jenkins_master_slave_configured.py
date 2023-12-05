@@ -1,14 +1,12 @@
-import jenkinsapi
-import subprocess
-
+from jenkinsapi.jenkins import Jenkins
 def get_master_node(jenkins_url):
     """Gets the master node of Jenkins."""
-    server = jenkinsapi.Jenkins(jenkins_url)
+    server = Jenkins(jenkins_url)
     return server.get_nodes()[0]
 
 def get_slave_nodes(jenkins_url):
     """Gets the slave nodes of Jenkins."""
-    server = jenkinsapi.Jenkins(jenkins_url)
+    server = Jenkins(jenkins_url)
     return server.get_nodes()[1:]
 
 def main():
