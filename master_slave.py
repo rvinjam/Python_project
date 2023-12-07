@@ -3,10 +3,19 @@ def has_master_slave_configuration(jenkins_url):
    try:
        # Make an HTTP request to Jenkins API
        api_url = f"{jenkins_url.rstrip('/')}/computer/api/json"
-       response = requests.get(api_url)
+       print("api_url",api_url)
+       response = requests.get(api_url, auth=('ramarao', 'Jenkins@123')) 
+       
        # Check if the response contains information about nodes (slaves)
+       print("response :",response)
+       if response:
+            print('Success!')
+       else:
+            print('An error has occurred.')
+            exit(0)
        data = response.json()
-       if 'computer' in data:
+       print("Data :",data)
+       if 'Slave' in data:
            return True
        return False
    except Exception as e:

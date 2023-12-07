@@ -2,7 +2,7 @@ import requests
 def is_jenkins_dockerized(jenkins_url):
    try:
        # Make an HTTP request to Jenkins
-       response = requests.get(jenkins_url)
+       response = requests.get(jenkins_url, auth=('ramarao', 'Jenkins@123')) 
        # Check if the 'Server' header contains 'Docker'
        server_header = response.headers.get('Server', '')
        if 'Docker' in server_header:
