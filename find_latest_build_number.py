@@ -11,6 +11,7 @@ def get_latest_build_number(jenkins_url, job_name, username, password):
            if latest_build is not None:
                latest_build_number = data.get('lastBuild', {}).get('number')
                print(f"Latest build number for job '{job_name}': {latest_build_number}")
+               return latest_build_number
            else:
                print(f"No builds found for job '{job_name}'.")
        else:
@@ -36,4 +37,4 @@ if response.status_code == 200:
        print("No jobs found in Jenkins.")
 else:
    print(f"Failed to retrieve job information. Status code: {response.status_code}")
-job_name = "your_job_name"
+

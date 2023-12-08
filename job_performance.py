@@ -1,4 +1,6 @@
 import requests
+import find_latest_build_number
+
 def check_build_duration(jenkins_url, job_name, build_number, username, password):
    try:
        api_url = f"{jenkins_url.rstrip('/')}/job/{job_name}/{build_number}/api/json"
@@ -14,11 +16,23 @@ def check_build_duration(jenkins_url, job_name, build_number, username, password
            print(f"Failed to retrieve build information. HTTP Status Code: {response.status_code}")
    except Exception as e:
        print(f"Error: {e}")
-# Replace these with your Jenkins server details and the specific job details
 jenkins_url = "http://localhost:8080"
 username = "ramarao"
 password = "Jenkins@123"
-job_name = "your_job_name"
-build_number = "your_build_number"
-# Call the function to check build duration
-check_build_duration(jenkins_url, job_name, build_number, username, password)
+response = requests.get(f'{jenkins_url}/api/json', auth=(username, password))
+if response.status_code == 200:
+   data = response.json()
+   jobs = data['jobs']
+   print("List of Jenkins Jobs:")
+   if jobs:
+       for job in jobs:
+           print(job['name'])
+           job_name = job['name']
+           # Call the function to get the latest build number
+           build_number = find_latest_build_number.get_latest_build_number(jenkins_url, job_name, username, password)
+           # Call the function to check build duration
+           check_build_duration(jenkins_url, job_name, build_number, username, password)
+   else:
+       print("No jobs found in Jenkins.")
+else:
+   print(f"Failed to retrieve job information. Status code: {response.status_code}")

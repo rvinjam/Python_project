@@ -37,7 +37,7 @@ def verify_jenkins_backup_config(jenkins_url, jenkins_username, jenkins_password
 jenkins_url = "http://localhost:8080"
 jenkins_username = "ramarao"
 jenkins_password = "Jenkins@123"
-backup_directory = "Testing_java"
+backup_directory = ""
 
 # Call the function to verify Jenkins backup configuration using REST API
 verify_jenkins_backup_config(jenkins_url, jenkins_username, jenkins_password, backup_directory)
