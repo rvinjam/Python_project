@@ -1,4 +1,5 @@
 import requests
+import read_jenkins_config
 def check_jenkins_best_practices(jenkins_url, username, password):
    try:
        # Check if Jenkins is using security (authentication and authorization)
@@ -35,9 +36,7 @@ def check_backup_config(jenkins_url, username, password):
    except Exception as e:
        print(f"Error checking backup configuration: {e}")
        return False
-# Replace these with your Jenkins server details
-jenkins_url = "http://localhost:8080"
-username = "ramarao"
-password = "Jenkins@123"
+# read jenkins config
+jenkins_url, username, password = read_jenkins_config.read_jenkins_config()
 # Call the function to check Jenkins best practices
 check_jenkins_best_practices(jenkins_url, username, password)

@@ -1,4 +1,5 @@
 import requests
+import read_jenkins_config
 def get_latest_build_number(jenkins_url, job_name, username, password):
    try:
        # REST API URL for the Jenkins job
@@ -18,10 +19,9 @@ def get_latest_build_number(jenkins_url, job_name, username, password):
            print(f"Failed to retrieve build information. HTTP Status Code: {response.status_code}")
    except Exception as e:
        print(f"Error: {e}")
-# Replace these with your Jenkins server details and the specific job name
-jenkins_url = "http://localhost:8080"
-username = "ramarao"
-password = "Jenkins@123"
+# read jenkins config
+jenkins_url, username, password = read_jenkins_config.read_jenkins_config()
+
 response = requests.get(f'{jenkins_url}/api/json', auth=(username, password))
 if response.status_code == 200:
    data = response.json()

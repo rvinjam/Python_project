@@ -1,5 +1,5 @@
 import requests
-
+import read_jenkins_config
 def verify_jenkins_backup_config(jenkins_url, jenkins_username, jenkins_password, backup_directory):
     try:
         # Make an HTTP request to Jenkins API to check backup directory
@@ -33,11 +33,9 @@ def verify_jenkins_backup_config(jenkins_url, jenkins_username, jenkins_password
         print(f"Error: {e}")
         return False
 
-# Replace these with your Jenkins server details and backup job name
-jenkins_url = "http://localhost:8080"
-jenkins_username = "ramarao"
-jenkins_password = "Jenkins@123"
+# read jenkins config
+jenkins_url, username, password = read_jenkins_config.read_jenkins_config()
 backup_directory = ""
 
 # Call the function to verify Jenkins backup configuration using REST API
-verify_jenkins_backup_config(jenkins_url, jenkins_username, jenkins_password, backup_directory)
+verify_jenkins_backup_config(jenkins_url, username, password, backup_directory)

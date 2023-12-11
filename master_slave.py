@@ -1,4 +1,5 @@
 import requests
+import read_jenkins_config
 def has_master_slave_configuration(jenkins_url):
    try:
        # Make an HTTP request to Jenkins API
@@ -22,7 +23,7 @@ def has_master_slave_configuration(jenkins_url):
        print(f"Error: {e}")
        return False
 # Replace this with your Jenkins server URL
-jenkins_url = "http://localhost:8080"
+jenkins_url, jenkins_username, jenkins_password = read_jenkins_config.read_jenkins_config()
 if has_master_slave_configuration(jenkins_url):
    print("Jenkins has a master-slave configuration.")
 else:
