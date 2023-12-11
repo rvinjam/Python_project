@@ -8,10 +8,13 @@ def list_jobs_on_node(jenkins_url, node_name, username, password):
        response = requests.get(api_url, auth=(username, password))
        if response.status_code == 200:
            data = response.json()
+           print(data)
            # Extract information about the jobs running on the node
-           running_jobs = data.get('executors', [])
-           if running_jobs:
+           isOffline = data.get('offline')
+           print(isOffline)
+           if not isOffline:
                print(f"Jobs running on node '{node_name}':")
+               running_jobs = data.get('executors', [])
                for job in running_jobs:
                    job_name = job.get('currentExecutable', {}).get('url', '').split('/')[-3]
                    print(f"- {job_name}")
@@ -26,9 +29,10 @@ jenkins_url = "http://localhost:8080"
 username = "ramarao"
 password = "Jenkins@123"
 nodes = jenkins_nodes.list_jenkins_nodes(jenkins_url, username, password) 
+print(nodes)
+print("Jenkins Nodes:")
 if nodes:
-   print("Jenkins Nodes:")
-   for node in nodes:
+  for node in nodes:
        node_name = node
        # Call the function to list jobs running on a specific node
        list_jobs_on_node(jenkins_url, node_name, username, password)
