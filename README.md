@@ -16,6 +16,7 @@ Welcome to Python_project! This  project contains the couple of scripts to valid
 9. jenkins_nodes.py - list the jenkins nodes
 10. is_jenkins_dockerised.py - checks whether jenkins server running on docker container or not
 11. is_jenkins_node_dockerised.py - checks whether jenkins node running on docker container or not
-12. is_backup_configured.py - checks whether jenkins configured the backup or not
+12. dockerised.py - Checks whether jenkins server running on docker container or not 
 13. find_latest_build_number.py - to find the latest build of the job
 14. check_jenkins_bestpractices.py - checks whether jenkins following the best practices or not 
+15. is_backup_configured.py - checks whether jenkins configured the backup or not
