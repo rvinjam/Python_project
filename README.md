@@ -1,5 +1,5 @@
 # Python_project
-validate_job_naming_convension.py - validate the job names in the jenkins project
+validate_job_naming_convension.py - validate the job names in the jenkins project </b>
 validate_jenkins_dir_structure.py - validate the complete folder structure of the jenkins Home directory
 master_slave.py - checks the master slave configuration of jenkins server
 list_jobs.py - list the jobs in the jenkins project
