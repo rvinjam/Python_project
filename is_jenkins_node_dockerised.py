@@ -21,6 +21,7 @@ def is_node_dockerized(jenkins_url, node_name, username, password):
 
 # read jenkins config
 jenkins_url, username, password = read_jenkins_config.read_jenkins_config()
-node_name = "your_node_name"
+# example :  SlaveNode1
+node_name = input("Enter the node name\n")
 # Call the function to check if a specific node is Dockerized
 is_node_dockerized(jenkins_url, node_name, username, password)
