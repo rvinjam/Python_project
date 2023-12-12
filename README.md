@@ -1,7 +1,7 @@
 # Python_project
 
 ## Description
-Welcome to Python_project! This is this project contains the couple of scripts to validate and find the maturity of differnt tools and share the score/maturity of each tool. 
+Welcome to Python_project! This  project contains the couple of scripts to validate and find the maturity of differnt tools and share the score/maturity of each tool. 
 
 ## Task of each python script
 

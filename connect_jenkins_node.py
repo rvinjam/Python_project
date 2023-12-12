@@ -1,5 +1,6 @@
 import requests
 import read_jenkins_config
+import sys
 def connect_node(jenkins_url, node_name, username, password):
    try:
        # REST API URL for connecting a node
@@ -15,4 +16,5 @@ def connect_node(jenkins_url, node_name, username, password):
 # read jenkins config
 jenkins_url, username, password = read_jenkins_config.read_jenkins_config()
 # Call the function to connect a specific node
+node_name = input("Enter the node name\n")
 connect_node(jenkins_url, node_name, username, password)
