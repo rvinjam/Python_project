@@ -1,5 +1,6 @@
 import requests
 import jenkins_nodes
+import read_jenkins_config
 def list_jobs_on_node(jenkins_url, node_name, username, password):
    try:
        # REST API URL for obtaining information about the node
@@ -24,10 +25,8 @@ def list_jobs_on_node(jenkins_url, node_name, username, password):
            print(f"Failed to retrieve node information. HTTP Status Code: {response.status_code}")
    except Exception as e:
        print(f"Error: {e}")
-# Replace these with your Jenkins server details and the specific node name
-jenkins_url = "http://localhost:8080"
-username = "ramarao"
-password = "Jenkins@123"
+# read jenkins config
+jenkins_url, username, password = read_jenkins_config.read_jenkins_config()
 nodes = jenkins_nodes.list_jenkins_nodes(jenkins_url, username, password) 
 print(nodes)
 print("Jenkins Nodes:")

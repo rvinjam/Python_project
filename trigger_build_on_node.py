@@ -1,4 +1,5 @@
 import requests
+import read_jenkins_config
 def trigger_build_on_node(jenkins_url, job_name, node_name, username, password):
    try:
        # REST API URL for triggering a build
@@ -15,11 +16,9 @@ def trigger_build_on_node(jenkins_url, job_name, node_name, username, password):
            print(f"Failed to trigger build. HTTP Status Code: {response.status_code}")
    except Exception as e:
        print(f"Error: {e}")
-# Replace these with your Jenkins server details, the specific job name, and node name
-jenkins_url = "http://localhost:8080"
-username = "ramarao"
-password = "Jenkins@123"
-job_name = "your_job_name"
-node_name = "your_node_name"
+# read jenkins config
+jenkins_url, username, password = read_jenkins_config.read_jenkins_config()
+job_name = ""
+node_name = ""
 # Call the function to trigger a build on a specific node
 trigger_build_on_node(jenkins_url, job_name, node_name, username, password)

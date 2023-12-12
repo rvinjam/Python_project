@@ -1,4 +1,5 @@
 import requests
+import read_jenkins_config
 def list_jenkins_nodes(jenkins_url, username, password):
    try:
        # Make an HTTP request to Jenkins API to get information about nodes (slaves)
@@ -16,9 +17,8 @@ def list_jenkins_nodes(jenkins_url, username, password):
        print(f"Error: {e}")
        return None
 # Replace these with your Jenkins server URL, username, and password
-jenkins_url = "http://localhost:8080"
-username = "ramarao"
-password = "Jenkins@123"
+# read jenkins config
+jenkins_url, username, password = read_jenkins_config.read_jenkins_config()
 nodes = list_jenkins_nodes(jenkins_url, username, password)
 if nodes:
    print("Jenkins Nodes:")

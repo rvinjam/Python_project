@@ -1,5 +1,6 @@
 import re
 import requests
+import read_jenkins_config
 
 def check_job_name(job_name):
   """
@@ -29,12 +30,10 @@ def check_job_name(job_name):
     return False
 
   return True
-# Replace these variables with your Jenkins server information
-jenkins_url = 'http://localhost:8080/'
-username = 'admin'
-api_token = '111266e5a6cc3260aa208f6355256bec27'  # You can generate this token in Jenkins
+# read jenkins config
+jenkins_url, username, password = read_jenkins_config.read_jenkins_config()
 # Make an API request to get job information
-response = requests.get(f'{jenkins_url}/api/json', auth=(username, api_token))
+response = requests.get(f'{jenkins_url}/api/json', auth=(username, password))
 if response.status_code == 200:
    data = response.json()
    jobs = data['jobs']

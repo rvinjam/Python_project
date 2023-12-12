@@ -1,5 +1,6 @@
 import requests
 import find_latest_build_number
+import read_jenkins_config
 
 def check_build_duration(jenkins_url, job_name, build_number, username, password):
    try:
@@ -16,9 +17,8 @@ def check_build_duration(jenkins_url, job_name, build_number, username, password
            print(f"Failed to retrieve build information. HTTP Status Code: {response.status_code}")
    except Exception as e:
        print(f"Error: {e}")
-jenkins_url = "http://localhost:8080"
-username = "ramarao"
-password = "Jenkins@123"
+# read jenkins config
+jenkins_url, username, password = read_jenkins_config.read_jenkins_config()
 response = requests.get(f'{jenkins_url}/api/json', auth=(username, password))
 if response.status_code == 200:
    data = response.json()

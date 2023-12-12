@@ -1,4 +1,5 @@
 import requests
+import read_jenkins_config
 def list_jenkins_plugins(jenkins_url, username, password):
    try:
        api_url = f"{jenkins_url.rstrip('/')}/pluginManager/api/json?depth=1"
@@ -16,9 +17,7 @@ def list_jenkins_plugins(jenkins_url, username, password):
            print(f"Failed to retrieve plugin information. HTTP Status Code: {response.status_code}")
    except Exception as e:
        print(f"Error: {e}")
-# Replace these with your Jenkins server details
-jenkins_url = "http://localhost:8080"
-username = "ramarao"
-password = "Jenkins@123"
+# read jenkins config
+jenkins_url, username, password = read_jenkins_config.read_jenkins_config()
 # Call the function to list Jenkins plugins
 list_jenkins_plugins(jenkins_url, username, password)
