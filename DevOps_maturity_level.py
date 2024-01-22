@@ -3,11 +3,11 @@ criteria = {
     "Integration": 3,
     "Configuration": 3,
     "Security and Vulnerability": 3,
-    "Reliability": 2,
+    "Reliability": 3,
     "Culture": 3,
-    "Software Delivery Performance": 2,
-    "Team performance": 2,
-    "Organization performance": 2,
+    "Software Delivery Performance": 3,
+    "Team performance": 3,
+    "Organization performance": 3,
     "Operational performance": 3,
     
 }
