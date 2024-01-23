@@ -1,8 +1,9 @@
 import requests
-def is_jenkins_dockerized(jenkins_url):
+import read_jenkins_config
+def is_jenkins_dockerized(jenkins_url,username,password):
    try:
        # Make an HTTP request to Jenkins
-       response = requests.get(jenkins_url)
+       response = requests.get(jenkins_url, auth=(username, password)) 
        # Check if the 'Server' header contains 'Docker'
        server_header = response.headers.get('Server', '')
        if 'Docker' in server_header:
@@ -14,9 +15,10 @@ def is_jenkins_dockerized(jenkins_url):
    except Exception as e:
        print(f"Error: {e}")
        return False
-# Replace this with your Jenkins server URL
-jenkins_url = "http://localhost:8080"
-if is_jenkins_dockerized(jenkins_url):
+# read jenkins config
+jenkins_url, username, password = read_jenkins_config.read_jenkins_config()
+
+if is_jenkins_dockerized(jenkins_url,username,password):
    print("Jenkins is running in a Docker container.")
 else:
    print("Jenkins is not running in a Docker container.")
