@@ -32,10 +32,10 @@ for criterion, weight in criteria.items():
              
 # Output the maturity level based on the total score
 if maturity_score >= 3:
-    print("Maturity Level: Elite")
+    print("Integration maturity Level: Elite")
 elif maturity_score >= 2:
-    print("Maturity Level: High")
+    print("Integration maturity Level: High")
 elif maturity_score >= 1:
-    print("Maturity Level: Medium")
+    print("Integration maturity Level: Medium")
 else:
-    print("Maturity Level: Low")
+    print("Integration maturity Level: Low")
