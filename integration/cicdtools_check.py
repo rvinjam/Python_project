@@ -14,7 +14,6 @@ def check_ci_pipeline():
                        ".gitlab-ci.yml", "azure-pipelines.yml" , "buildspec.yml", "appspec.yml"]
     for config_file in ci_config_files:
         if os.path.isfile(config_file):
-            #print(f"CI Pipeline: {config_file} found.")
             return 1
         
         else:
@@ -23,7 +22,7 @@ def check_ci_pipeline():
              github_actions_files = [f for f in os.listdir('.github/workflows') if f.endswith('.yml')]
              if github_actions_files:
                 return 1
-
+        return 0
 def check_automated_tests():
     # You might use a specific testing framework like pytest or unittest here
     # Check for the existence of automated tests or test directories
