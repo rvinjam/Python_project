@@ -16,9 +16,13 @@ def check_ci_pipeline():
         if os.path.isfile(config_file):
             #print(f"CI Pipeline: {config_file} found.")
             return 1
+        
         else:
-            #print(f"NO CI Pipeline: {config_file} found.")
-            return 0
+            # Check for GitHub Actions workflow files
+            if  os.path.isdir('.github/workflows'):
+             github_actions_files = [f for f in os.listdir('.github/workflows') if f.endswith('.yml')]
+             if github_actions_files:
+                return 1
 
 def check_automated_tests():
     # You might use a specific testing framework like pytest or unittest here
