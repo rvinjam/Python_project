@@ -1,9 +1,9 @@
 from github import Github
-access_token = ''
+access_token = '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'
 # Create a GitHub instance using the access token
 github_instance = Github(access_token)
 # Specify the repository details
-repo_owner = ''
-repo_name = ''
+repo_owner = 'rvinjam'
+repo_name = 'Python_project'
 # Get the repository
 repository = github_instance.get_repo(f'{repo_owner}/{repo_name}')

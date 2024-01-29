@@ -1,0 +1,40 @@
+#!groovy
+
+pipeline {
+
+  agent any
+
+  parameters {
+
+  }
+
+  stages {
+   stage('checkout code') {
+      steps {
+
+      }
+    }
+
+    stage('build) {
+      steps {
+
+      }
+    }
+   stage('deploy') {
+      steps {
+
+      }
+    }
+   
+  }
+   post { 
+        always { 
+            
+    
+
+            
+        }
+    }
+    
+}
+
