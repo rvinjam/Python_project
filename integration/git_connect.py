@@ -1,5 +1,5 @@
 from github import Github
-access_token = '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'
+access_token = ''
 # Create a GitHub instance using the access token
 github_instance = Github(access_token)
 # Specify the repository details
